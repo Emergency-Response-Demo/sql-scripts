@@ -15,5 +15,5 @@ ALTER SEQUENCE incident_sequence OWNED BY Incident.incident_id;
 
 CREATE TYPE status AS ENUM ('Requested','Assigned','Pickedup','Cancelled','Rescued');
 
-CREATE TABLE Mission ( mission_id integer PRIMARY KEY DEFAULT nextval('mission_sequence'), responder_id integer references REPORTER, last_update date, current_status status);
+CREATE TABLE Mission ( mission_id integer PRIMARY KEY DEFAULT nextval('mission_sequence'), responder_id integer references RESPONDER, incident_id integer references INCIDENT, last_update date, current_status status);
 ALTER SEQUENCE mission_sequence OWNED BY Mission.mission_id;
