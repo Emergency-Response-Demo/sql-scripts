@@ -133,9 +133,9 @@ CREATE TABLE public.reported_incident (
     medical_needed boolean,
     number_of_people integer,
     incident_status character varying(255),
-    reported_timestamp bigint,
     victim_name character varying(255),
-    victim_phone character varying(255)
+    victim_phone character varying(255),
+    reported_time timestamp(3) without time zone
 );
 
 
