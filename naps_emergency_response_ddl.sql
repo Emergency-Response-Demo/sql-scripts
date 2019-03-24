@@ -92,6 +92,39 @@ ALTER TABLE public.mission_sequence OWNER TO naps;
 
 ALTER SEQUENCE public.mission_sequence OWNED BY public.mission.mission_id;
 
+--
+-- Name: reported_incident; Type: TABLE; Schema: public; Owner: naps
+--
+
+CREATE TABLE public.reported_incident (
+    id bigint NOT NULL,
+    incident_id character varying(255),
+    latitude character varying(255),
+    longitude character varying(255),
+    medical_needed boolean,
+    number_of_people integer,
+    incident_status character varying(255),
+    reported_timestamp bigint,
+    victim_name character varying(255),
+    victim_phone character varying(255)
+);
+
+
+ALTER TABLE public.reported_incident OWNER TO naps;
+
+--
+-- Name: reported_incident_seq; Type: SEQUENCE; Schema: public; Owner: naps
+--
+
+CREATE SEQUENCE public.reported_incident_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.reported_incident_seq OWNER TO naps;
 
 --
 -- Name: reporter; Type: TABLE; Schema: public; Owner: naps
