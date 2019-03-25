@@ -165,11 +165,11 @@ ALTER SEQUENCE public.reporter_sequence OWNED BY public.reporter.reporter_id;
 --
 
 CREATE TABLE public.responder (
-    responder_id integer NOT NULL,
+    responder_id bigint NOT NULL,
     responder_name text,
     responder_phone_number text,
-    responder_current_gps_lat double precision,
-    responder_current_gps_long double precision,
+    responder_current_gps_lat numeric(7,5),
+    responder_current_gps_long numeric(7,5),
     boat_capacity integer,
     has_medical_kit boolean,
     available boolean DEFAULT true
