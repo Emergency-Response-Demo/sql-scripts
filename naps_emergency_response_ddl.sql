@@ -171,7 +171,8 @@ CREATE TABLE public.responder (
     responder_current_gps_lat double precision,
     responder_current_gps_long double precision,
     boat_capacity integer,
-    has_medical_kit boolean
+    has_medical_kit boolean,
+    available boolean DEFAULT true
 );
 
 
