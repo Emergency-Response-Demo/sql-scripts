@@ -172,8 +172,10 @@ CREATE TABLE public.responder (
     responder_current_gps_long numeric(7,5),
     boat_capacity integer,
     has_medical_kit boolean,
-    available boolean DEFAULT true
+    available boolean DEFAULT true,
+    version bigint DEFAULT 0
 );
+
 
 
 ALTER TABLE public.responder OWNER TO naps;
