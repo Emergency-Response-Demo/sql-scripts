@@ -262,6 +262,14 @@ ALTER TABLE ONLY public.responder
 
 
 --
+-- Name: reported_incident reported_incident_pkey; Type: CONSTRAINT; Schema: public; Owner: naps
+--
+
+ALTER TABLE ONLY public.reported_incident
+    ADD CONSTRAINT reported_incident_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: incident incident_report_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: naps
 --
 
