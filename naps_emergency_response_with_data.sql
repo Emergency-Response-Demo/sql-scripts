@@ -135,7 +135,8 @@ CREATE TABLE public.reported_incident (
     incident_status character varying(255),
     victim_name character varying(255),
     victim_phone character varying(255),
-    reported_time timestamp(3) without time zone
+    reported_time timestamp(3) without time zone,
+    version bigint DEFAULT 0
 );
 
 
