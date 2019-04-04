@@ -286,6 +286,12 @@ ALTER TABLE ONLY public.mission
 
 
 --
+-- Name: idx_reported_incident_incident_id; Type: INDEX; Schema: public; Owner: naps                                            
+--
+
+CREATE INDEX idx_reported_incident_incident_id ON public.reported_incident USING btree (incident_id); 
+
+--
 -- PostgreSQL database dump complete
 --
 
