@@ -174,6 +174,7 @@ CREATE TABLE public.responder (
     boat_capacity integer,
     has_medical_kit boolean,
     available boolean DEFAULT true,
+    person boolean DEFAULT false,
     version bigint DEFAULT 0
 );
 
