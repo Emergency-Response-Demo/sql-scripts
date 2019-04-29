@@ -20,79 +20,6 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- Name: incident; Type: TABLE; Schema: public; Owner: naps
---
-
-CREATE TABLE public.incident (
-    incident_id integer NOT NULL,
-    report_id integer,
-    gps_lat double precision,
-    gps_long double precision,
-    number_of_people integer,
-    medical_need boolean,
-    report_time timestamp without time zone
-);
-
-
-ALTER TABLE public.incident OWNER TO naps;
-
---
--- Name: incident_sequence; Type: SEQUENCE; Schema: public; Owner: naps
---
-
-CREATE SEQUENCE public.incident_sequence
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
-ALTER TABLE public.incident_sequence OWNER TO naps;
-
---
--- Name: incident_sequence; Type: SEQUENCE OWNED BY; Schema: public; Owner: naps
---
-
-ALTER SEQUENCE public.incident_sequence OWNED BY public.incident.incident_id;
-
-
---
--- Name: mission; Type: TABLE; Schema: public; Owner: naps
---
-
-CREATE TABLE public.mission (
-    mission_id integer NOT NULL,
-    responder_id integer,
-    last_update date,
-    current_status public.status,
-    incident_id integer
-);
-
-
-ALTER TABLE public.mission OWNER TO naps;
-
---
--- Name: mission_sequence; Type: SEQUENCE; Schema: public; Owner: naps
---
-
-CREATE SEQUENCE public.mission_sequence
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
-ALTER TABLE public.mission_sequence OWNER TO naps;
-
---
--- Name: mission_sequence; Type: SEQUENCE OWNED BY; Schema: public; Owner: naps
---
-
-ALTER SEQUENCE public.mission_sequence OWNED BY public.mission.mission_id;
-
---
 -- Name: reported_incident; Type: TABLE; Schema: public; Owner: naps
 --
 
@@ -128,40 +55,6 @@ CREATE SEQUENCE public.reported_incident_seq
 ALTER TABLE public.reported_incident_seq OWNER TO naps;
 
 --
--- Name: reporter; Type: TABLE; Schema: public; Owner: naps
---
-
-CREATE TABLE public.reporter (
-    reporter_id integer NOT NULL,
-    reporter_name text,
-    reporter_phone_number text
-);
-
-
-ALTER TABLE public.reporter OWNER TO naps;
-
---
--- Name: reporter_sequence; Type: SEQUENCE; Schema: public; Owner: naps
---
-
-CREATE SEQUENCE public.reporter_sequence
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
-ALTER TABLE public.reporter_sequence OWNER TO naps;
-
---
--- Name: reporter_sequence; Type: SEQUENCE OWNED BY; Schema: public; Owner: naps
---
-
-ALTER SEQUENCE public.reporter_sequence OWNED BY public.reporter.reporter_id;
-
-
---
 -- Name: responder; Type: TABLE; Schema: public; Owner: naps
 --
 
@@ -177,7 +70,6 @@ CREATE TABLE public.responder (
     person boolean DEFAULT false,
     version bigint DEFAULT 0
 );
-
 
 
 ALTER TABLE public.responder OWNER TO naps;
@@ -204,55 +96,10 @@ ALTER SEQUENCE public.responder_sequence OWNED BY public.responder.responder_id;
 
 
 --
--- Name: incident incident_id; Type: DEFAULT; Schema: public; Owner: naps
---
-
-ALTER TABLE ONLY public.incident ALTER COLUMN incident_id SET DEFAULT nextval('public.incident_sequence'::regclass);
-
-
---
--- Name: mission mission_id; Type: DEFAULT; Schema: public; Owner: naps
---
-
-ALTER TABLE ONLY public.mission ALTER COLUMN mission_id SET DEFAULT nextval('public.mission_sequence'::regclass);
-
-
---
--- Name: reporter reporter_id; Type: DEFAULT; Schema: public; Owner: naps
---
-
-ALTER TABLE ONLY public.reporter ALTER COLUMN reporter_id SET DEFAULT nextval('public.reporter_sequence'::regclass);
-
-
---
 -- Name: responder responder_id; Type: DEFAULT; Schema: public; Owner: naps
 --
 
 ALTER TABLE ONLY public.responder ALTER COLUMN responder_id SET DEFAULT nextval('public.responder_sequence'::regclass);
-
-
---
--- Name: incident incident_pkey; Type: CONSTRAINT; Schema: public; Owner: naps
---
-
-ALTER TABLE ONLY public.incident
-    ADD CONSTRAINT incident_pkey PRIMARY KEY (incident_id);
-
-
---
--- Name: mission mission_pkey; Type: CONSTRAINT; Schema: public; Owner: naps
---
-
-ALTER TABLE ONLY public.mission
-    ADD CONSTRAINT mission_pkey PRIMARY KEY (mission_id);
-
-
---
--- Name: reporter reporter_pkey; Type: CONSTRAINT; Schema: public; Owner: naps
---
-
-ALTER TABLE ONLY public.reporter
-    ADD CONSTRAINT reporter_pkey PRIMARY KEY (reporter_id);
 
 
 --
@@ -269,22 +116,6 @@ ALTER TABLE ONLY public.responder
 
 ALTER TABLE ONLY public.reported_incident
     ADD CONSTRAINT reported_incident_pkey PRIMARY KEY (id);
-
-
---
--- Name: incident incident_report_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: naps
---
-
-ALTER TABLE ONLY public.incident
-    ADD CONSTRAINT incident_report_id_fkey FOREIGN KEY (report_id) REFERENCES public.reporter(reporter_id);
-
-
---
--- Name: mission mission_responder_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: naps
---
-
-ALTER TABLE ONLY public.mission
-    ADD CONSTRAINT mission_responder_id_fkey FOREIGN KEY (responder_id) REFERENCES public.reporter(reporter_id);
 
 
 --
