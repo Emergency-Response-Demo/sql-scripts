@@ -68,6 +68,7 @@ CREATE TABLE public.responder (
     has_medical_kit boolean,
     available boolean DEFAULT true,
     person boolean DEFAULT false,
+    enrolled boolean DEFAULT true,
     version bigint DEFAULT 0
 );
 
