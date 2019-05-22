@@ -46,7 +46,7 @@ ALTER TABLE public.reported_incident OWNER TO naps;
 
 CREATE SEQUENCE public.reported_incident_seq
     START WITH 1
-    INCREMENT BY 1
+    INCREMENT BY 10
     NO MINVALUE
     NO MAXVALUE
     CACHE 1;
