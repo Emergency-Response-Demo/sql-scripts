@@ -288,6 +288,11 @@ ALTER TABLE ONLY public.reported_incident
 
 CREATE INDEX idx_reported_incident_incident_id ON public.reported_incident USING btree (incident_id); 
 
+--
+-- Name: idx_reported_incident_victim_name; Type: INDEX; Schema: public; Owner: naps
+--
+
+CREATE INDEX idx_reported_incident_victim_name ON public.reported_incident USING btree (victim_name);
 
 --
 -- PostgreSQL database dump complete
