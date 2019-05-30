@@ -1,1 +1,1 @@
-SQL scripts to create and populate the naps-emergency-response project database
+SQL scripts to create and populate the emergency-response_demo project database
