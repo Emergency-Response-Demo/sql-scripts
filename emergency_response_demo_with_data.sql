@@ -83,7 +83,7 @@ ALTER TABLE public.responder OWNER TO naps;
 
 CREATE SEQUENCE public.responder_sequence
     START WITH 1
-    INCREMENT BY 1
+    INCREMENT BY 10
     NO MINVALUE
     NO MAXVALUE
     CACHE 1;
