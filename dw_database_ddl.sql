@@ -24,12 +24,12 @@ CREATE TABLE public.MissionReport (
     responderDistancePickup bigint DEFAULT 0,
     responderDistanceDropoff bigint DEFAULT 0,
     responderDistanceTotal bigint DEFAULT 0,
-    responseTimePickup timestamp(3) without time zone,
-    responseTimeDropoff timestamp(3) without time zone,
-    responseTimeTotal timestamp(3) without time zone
+    responseTimeSecondesPickup integer DEFAULT 0,
+    responseTimeSecondsDropoff integer DEFAULT 0,
+    responseTimeSecondsTotal integer DEFAULT 0
 );
 
 ALTER TABLE public.MissionReport OWNER TO naps;
 
 ALTER TABLE ONLY public.MissionReport
-    ADD CONSTRAINT responder_pkey PRIMARY KEY (id);
+    ADD CONSTRAINT missionReport_pkey PRIMARY KEY (id);
