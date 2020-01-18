@@ -24,7 +24,7 @@ CREATE TABLE public.MissionReport (
     responderDistancePickup bigint DEFAULT 0,
     responderDistanceDropoff bigint DEFAULT 0,
     responderDistanceTotal bigint DEFAULT 0,
-    responseTimeSecondesPickup integer DEFAULT 0,
+    responseTimeSecondsPickup integer DEFAULT 0,
     responseTimeSecondsDropoff integer DEFAULT 0,
     responseTimeSecondsTotal integer DEFAULT 0
 );
