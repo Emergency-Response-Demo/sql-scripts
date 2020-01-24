@@ -17,6 +17,7 @@ CREATE TABLE public.MissionReport (
     id character varying(255),
     status character varying(255),
     incidentId character varying(255),
+    processInstanceId character varying(255),
     responderId character varying(255),
     responderFullName character varying(255),
     responderHasMedicalKit boolean DEFAULT false,
