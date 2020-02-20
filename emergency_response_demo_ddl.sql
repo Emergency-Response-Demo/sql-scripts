@@ -63,7 +63,7 @@ CREATE TABLE public.responder (
     responder_name text,
     responder_phone_number text,
     responder_current_gps_lat numeric(7,5),
-    responder_current_gps_long numeric(7,5),
+    responder_current_gps_long numeric(8,5),
     boat_capacity integer,
     has_medical_kit boolean,
     available boolean DEFAULT true,
